@@ -29,7 +29,7 @@ SilverStripe 4.x
 ```json
 {
   "require-dev": {
-    "silverleague/ideannotator": "3.x-dev"
+    "silverleague/ideannotator": "^3.0"
   }
 }
 ```
