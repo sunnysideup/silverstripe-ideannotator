@@ -125,6 +125,7 @@ abstract class AbstractTagGenerator
     protected function generateExtensionsTags()
     {
         if ($fields = array_filter((array)$this->getClassConfig('extensions'))) {
+            sort($fields);
             foreach ($fields as $fieldName) {
                 $mixinName = $this->getAnnotationClassName($fieldName);
                 $this->pushMixinTag($mixinName);
@@ -133,6 +134,7 @@ abstract class AbstractTagGenerator
         if (is_subclass_of($this->className, DataObject::class)) {
             $baseFields = Config::inst()->get(DataObject::class, 'extensions', Config::UNINHERITED);
             if ($baseFields) {
+                sort($baseFields);
                 foreach ($baseFields as $fieldName) {
                     $mixinName = $this->getAnnotationClassName($fieldName);
                     $this->pushMixinTag($mixinName);
